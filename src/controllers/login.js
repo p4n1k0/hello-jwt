@@ -1,3 +1,5 @@
+const Joi = require('joi');
+
 const service = require('../services/User');
 const { validateCredentials } = require('./utils/validateCredentials');
 

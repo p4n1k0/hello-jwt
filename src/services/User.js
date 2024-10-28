@@ -5,11 +5,10 @@ const { JWT_SECRET } = process.env;
 
 /* Deixamos de receber `admin`, pois agora será lido de Users.json */
 const login = async (username, password) => {
-    //   /* Não precisamos validar os campos, pois o controller já faz isso pra nós */    
+    //   /* Não precisamos validar os campos, pois o controller já faz isso pra nós */
 
     /* Buscamos as informações no arquivo Users.json */
     const user = await model.findOne(username);
-
     if (!user || user.password !== password) {
         return {
             error: {
@@ -18,6 +17,7 @@ const login = async (username, password) => {
             },
         };
     }
+
 
     const payload = {
         username,
